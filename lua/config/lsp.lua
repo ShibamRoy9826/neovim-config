@@ -1,8 +1,9 @@
+require("mason").setup()
+
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls"},
+    ensure_installed = { "lua_ls","pylsp"},
 }
 
-require("mason").setup()
 
 vim.lsp.config["lua_ls"] = {
   cmd = { "lua-language-server" },
@@ -17,4 +18,18 @@ vim.lsp.config["lua_ls"] = {
   },
 }
 
+vim.lsp.config["pylsp"] = {
+  cmd = { vim.fn.getcwd() .. "/.venv/bin/pylsp" },
+  settings = {
+    pylsp = {
+      plugins = {
+        pyflakes = { enabled = true },
+        pycodestyle = { enabled = false },
+        black = { enabled = true },
+      },
+    },
+  },
+}
+
 vim.lsp.enable("lua_ls")
+vim.lsp.enable("pylsp")
