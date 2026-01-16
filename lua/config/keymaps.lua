@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- general
-vim.keymap.set('n', '<leader>d', ':NotificationsClear')
+vim.keymap.set('n', '<leader>cn', ':Notifications<CR>')
 vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', { desc = 'File tree' })
 vim.keymap.set('n', '<C-s>', ':wa<CR>', { desc = 'write all file' })
 vim.keymap.set('n', '<C-q>', ':q<CR>', { desc = 'Quits neovim' })
